@@ -1,6 +1,6 @@
-import {transfer} from './transactions.js';
+import {transfer, updateStore } from './modules/transactions.js';
+import { DisplayContent } from './modules/renderView.js';
 
-const bodyContainer = document.getElementById("root");
 
 const CurrentUser = JSON.parse(localStorage.getItem("currentUser"));
 const UserData = JSON.parse(localStorage.getItem("userData"));
@@ -39,82 +39,3 @@ if (!CurrentUser.admin) {
   });
 }
 
-function updateStore(store, user, amount, form) {
-  store.map((person) => {
-    if (person.email === user.email) {
-      person.balance = parseInt(person.balance) + parseInt(amount);
-      indicator(form, "Transfer/Top-up  was made successfully!");
-    } else {
-      return null;
-    }
-  });
-
-  localStorage.setItem("userData", JSON.stringify(store));
-}
-
-
-function indicator (wrapper, content) {
-          const container = document.createElement("div");
-          container.innerHTML = `<span class='invalid-span' >${content}</span>`;
-          wrapper.prepend(container);
-
-          setTimeout(() => {
-            wrapper.removeChild(container);
-          }, 1000);
-}
-
-function DisplayContent(currentUser, users) {
-  const HtmlString = `<h1>Hello ${currentUser.name} </h1>
-    <p>Welcome to RexPay, the one and only platform to transfer your money to anyone around the world in a very short time</p>
-    ${
-      currentUser.admin
-        ? `
-
-        <h2>Top up for users</h2>
-        <form action="#" id='topup-form' >
-            <div>
-                <label for="amount">Enter amount to send</label>
-                <input type="number" name="amount" id="amount-topup">
-            </div>
-        
-            <div>
-                <label for="recipient">Select the recipient</label>
-                <select name="recipient" id="recipient-topup">
-                <option value="">--Please select the recipient</option>
-                ${users
-                  .filter(
-                    (user) => user.email !== currentUser.email && !user.admin
-                  )
-                  .map((person) => {
-                    return `<option value=${person.email}>${person.name}</option>`;
-                  })}
-                </select>
-            </div>
-            <input type="submit" value="Send" id="send">
-        </form>
-    `
-        : `<h2>Balance: ${Number(currentUser.balance)} </h2>
-        <h2>Transfer money</h2>
-        <form action="#" id='transfer-form' >
-            <div>
-                <label for="amount">Enter amount to send</label>
-                <input type="number" name="amount" id="amount">
-            </div>
-        
-            <div>
-                <label for="recipient">Select the recipient</label>
-                <select name="recipient" id="recipient">
-                <option value="">--Please select the recipient</option>
-                ${users
-                  .filter((user) => user.email !== currentUser.email)
-                  .map((person) => {
-                    return `<option value=${person.email}>${person.name}</option>`;
-                  })}
-                </select>
-            </div>
-            <input type="submit" value="Send" id="send">
-        </form>`
-    }`;
-
-  bodyContainer.innerHTML = HtmlString;
-}
