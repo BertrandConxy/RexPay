@@ -24,11 +24,12 @@ function loginAuth(database, user, form) {
             setCurrentUser('userData', user.email)
             form.reset()
             window.location.href = '../pages/main.html';
-            return
-    } else {
-      indicator(form, 'Invalid Email or password')
-    }
-  });
+            return true
+          } else {
+            indicator(form, `Invalid Email or password`)
+
+          }
+        });
 }
 
 function setCurrentUser(database, userMail) {

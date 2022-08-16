@@ -1,11 +1,9 @@
 export function indicator(wrapper, content) {
-  const container = document.createElement("div");
-  container.innerHTML = `<span class='invalid-span' >${content}</span>`;
-  wrapper.prepend(container);
+const container = document.createElement("div");
+container.id = 'indicator-id'
+container.innerHtml = `${content}`
+wrapper.prepend(container)
 
-  setTimeout(() => {
-    wrapper.removeChild(container);
-  }, 1000);
 }
 
 export function DisplayContent(currentUser, users) {
