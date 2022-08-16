@@ -20,4 +20,4 @@
   localStorage.setItem("userData", JSON.stringify(store));
 }
 
-export default transfer
+export default transfer;
