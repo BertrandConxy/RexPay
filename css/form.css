@@ -44,23 +44,4 @@
     border: 3px solid var(--primary-color-light);
 }
 
-.wrapper__form--btn {
-    border: none;
-    margin: 1rem 0;
-    border-radius: 1rem;
-    font-size: 1.8rem;
-    color: var(--color-grey-light-1);
-    padding: 1rem 3rem;
-    transition: all .3s ease-in-out;
-    box-shadow: .5rem .4rem 1rem rgba(0,0,0, 0.2);
-    background-image: linear-gradient(to bottom right, var(--primary-color-light), var(--primary-color-dark));
-}
 
-.wrapper__form--btn:hover {
-    cursor: pointer;
-    transform: translateY(-5px) scale(1.03);
-}
-.wrapper__form--btn:active {
-    transform: translateY(0) scale(1);
-    box-shadow: none;
-}

@@ -12,47 +12,53 @@ export function DisplayContent(currentUser, users) {
       <header class="header">
         <h1 class="header__logo">RexPay</h1>
         <a href="../../index.html" class="header__link">Log out</a>
-    </header>
-  <h2 class='heading'>Hello ${currentUser.name} </h2>
-    <p class="paragraph">Welcome to RexPay, the one and only platform to transfer your money to anyone around the world in a very short time</p>
+      </header>
+    <div class="headline">
+      <h2 class='headline__heading'>Hello ${currentUser.name} !</h2>
+      <p class="headline__paragraph">Welcome to RexPay, <br> the one and only platform to transfer your money to anyone around the world in a very short time.</p>
+    </div>
     ${
       currentUser.admin
         ? `
-
-        <h2>Top up for users</h2>
-        <form action="#" id='topup-form' >
-            <div>
-                <label for="amount">Enter amount to send</label>
-                <input type="number" name="amount" id="amount-topup">
-            </div>
-        
-            <div>
-                <label for="recipient">Select the recipient</label>
-                <select name="recipient" id="recipient-topup">
-                <option value="">--Please select the recipient</option>
-                ${users
-                  .filter(
-                    (user) => user.email !== currentUser.email && !user.admin
-                  )
-                  .map((person) => {
-                    return `<option value=${person.email}>${person.name}</option>`;
-                  })}
-                </select>
-            </div>
-            <input type="submit" value="Send" id="send">
-        </form>
+      <div class='trans-wrapper'>      
+      <h2 class='trans-wrapper__heading'>Top up for users</h2>
+      <form action="#" id='topup-form' class='trans-wrapper__form'>
+          <div class='block'>
+              <label for="amount" class='trans-wrapper__form--label'>Enter amount to send:</label>
+              <input type="number" name="amount" id="amount-topup" class='trans-wrapper__form--control' >
+          </div>
+      
+          <div class='block'>
+              <label for="recipient" class='trans-wrapper__form--label'>Select the recipient:</label>
+              <select name="recipient" id="recipient-topup" class='trans-wrapper__form--control'>
+              <option value="">--Please select the recipient</option>
+              ${users
+                .filter(
+                  (user) => user.email !== currentUser.email && !user.admin
+                )
+                .map((person) => {
+                  return `<option value=${person.email}>${person.name}</option>`;
+                })}
+              </select>
+          </div>
+          <input type="submit" value="Send" id="send" class='wrapper__form--btn'>
+      </form>
+      </div>
     `
-        : `<h2>Balance: ${Number(currentUser.balance)} </h2>
-        <h2>Transfer money</h2>
-        <form action="#" id='transfer-form' >
-            <div>
-                <label for="amount">Enter amount to send</label>
-                <input type="number" name="amount" id="amount">
+        : `
+
+        <span class='balance'>Balance: ${Number(currentUser.balance)}$ </span>
+        <div class='trans-wrapper'>
+        <h2 class='trans-wrapper__heading' >Transfer money</h2>
+        <form action="#" id='transfer-form' class='trans-wrapper__form' >
+            <div class='block'>
+                <label for="amount" class='trans-wrapper__form--label'>Enter amount to send:</label>
+                <input type="number" name="amount" id="amount" class='trans-wrapper__form--control'>
             </div>
         
-            <div>
-                <label for="recipient">Select the recipient</label>
-                <select name="recipient" id="recipient">
+            <div class='block'>
+                <label for="recipient" class='trans-wrapper__form--label'>Select the recipient:</label>
+                <select name="recipient" id="recipient" class='trans-wrapper__form--control'>
                 <option value="">--Please select the recipient</option>
                 ${users
                   .filter((user) => user.email !== currentUser.email)
@@ -61,8 +67,9 @@ export function DisplayContent(currentUser, users) {
                   })}
                 </select>
             </div>
-            <input type="submit" value="Send" id="send">
-        </form>`
+            <input type="submit" value="Send" id="send" class='wrapper__form--btn'  >
+        </form>
+        </div>`
     }`;
 
   bodyContainer.innerHTML = HtmlString;
