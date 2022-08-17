@@ -1,3 +1,5 @@
+import { indicator } from "./renderView.js";
+
 const LoginForm = document.getElementById("login-form");
 
 LoginForm.addEventListener("submit", (e) => {
@@ -22,17 +24,12 @@ function loginAuth(database, user, form) {
             setCurrentUser('userData', user.email)
             form.reset()
             window.location.href = '../pages/main.html';
-            return
-    } else {
-        const container = document.createElement('div');
-        container.innerHTML = `<span class='invalid-span' >Invalid Email or password</span>`
-        form.prepend(container);
+            return true
+          } else {
+            indicator(form, `Invalid Email or password`)
 
-        setTimeout(() => {
-            form.removeChild(container);
-        }, 1000);
-    }
-  });
+          }
+        });
 }
 
 function setCurrentUser(database, userMail) {

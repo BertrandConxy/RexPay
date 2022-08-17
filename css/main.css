@@ -1,0 +1,96 @@
+@import url("./base.css");
+
+.container > :not(header) {
+    margin: 2rem 4rem;
+    color: var(--color-black);
+}
+
+.header {
+  width: 100%;
+  height: 6rem;
+  /* color: var(--color-black); */
+  background: var(--color-grey-light-1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  box-shadow: 0.5rem 0.4rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.header__logo {
+  color: var(--primary-color-light);
+}
+
+.header__link:link,
+.header__link:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--primary-color-dark);
+  font-weight: bold;
+  transition: all 0.2s linear;
+}
+
+.headline {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.headline__heading {
+    font-size: 3.5rem;
+}
+
+.headline__paragraph {
+    display: inline-block;
+    margin: 1.5rem 0;
+    font-size: 2.5rem;
+}
+
+.balance {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.block {
+text-align: left;
+}
+
+.trans-wrapper {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1rem 3rem;
+    border-radius: 1rem;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.trans-wrapper__heading {
+    text-transform: capitalize;
+    margin: 1rem 0;
+}
+
+.trans-wrapper__form {
+    margin: 2rem;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.trans-wrapper__form--control {
+    height: 4rem;
+    width: 100%;
+    border-radius: .6rem;
+    border: 1px solid #fff;
+    box-shadow: .5rem .4rem 1rem rgba(0,0,0, 0.2);
+}
+
+.trans-wrapper__form--control::placeholder {
+    padding: 1rem;
+}
+
+.trans-wrapper__form--control:focus {
+    outline: none;
+    border: 3px solid var(--primary-color-light);
+}

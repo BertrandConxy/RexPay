@@ -1,4 +1,6 @@
- function transfer(store, sender, amount, form) {
+ import { indicator } from "./renderView.js";
+ 
+ export  function transfer(store, sender, amount, form) {
   store.map((person) => {
     if (person.email === sender.email) {
       if (Number(sender.balance) >= Number(amount)) {
@@ -20,4 +22,15 @@
   localStorage.setItem("userData", JSON.stringify(store));
 }
 
-export default transfer;
+ export function updateStore(store, user, amount, form) {
+  store.map((person) => {
+    if (person.email === user.email) {
+      person.balance = parseInt(person.balance) + parseInt(amount);
+      indicator(form, "Transfer/Top-up  was made successfully!");
+    } else {
+      return null;
+    }
+  });
+
+  localStorage.setItem("userData", JSON.stringify(store));
+}

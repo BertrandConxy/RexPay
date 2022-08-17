@@ -4,19 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/form.css">
     <title>RexPay | login</title>
 </head>
 <body>
-    <h1>Welcome back!</h1>
-    <p>Please login with your username and password</p>
-    <form action="" id="login-form" name="login">
-        <input type="email" name="email" id="email-login" placeholder="Email address" required>
-        <input type="password" name="password" id="password-login" placeholder="Password" required>
-        <input type="submit" value="Login" id="login">
-    </form>
+    <div class="wrapper">
 
-    <span>Don't have account? <a href="./pages/signup.html">Create account</a></span>
+        <h1 class="wrapper__heading">Welcome back!</h1>
+        <p class="wrapper__description">Please login with your username and password</p>
+        <form action="" id="login-form" name="login" class="wrapper__form" >
+            <input type="email" name="email" class="wrapper__form--control" id="email-login" placeholder="Email address" required>
+            <input type="password" name="password" class="wrapper__form--control" id="password-login" placeholder="Password" required>
+            <input type="submit" value="Login" id="login" class="wrapper__form--btn" >
+        </form>
+    
+        <span class="wrapper__span">Don't have account? <a href="./pages/signup.html">Create account</a></span>
+    </div>
 
-    <script src="./js/modules/handleLogin.js"></script>
+    <script type="module" src="./js/modules/handleLogin.js"></script>
 </body>
 </html>

@@ -1,0 +1,51 @@
+:root {
+  --primary-color-light: #7ed56f;
+  --primary-color-dark: #28b485;
+  --color-white: #fff;
+  --color-black: rgb(6, 9, 6);
+  --color-grey-light-1: #f5f3f3;
+  --color-grey-dark: #9d9d9d;
+  --default-fs: 1.6rem;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  /* Defines what 1rem is */
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--primary-color-light) ;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-size: var(--default-fs);
+  color: var(--color-grey-light-1);
+}
+
+.wrapper__form--btn {
+    border: none;
+    margin: 1rem 0;
+    border-radius: 1rem;
+    font-size: 1.8rem;
+    color: var(--color-grey-light-1);
+    padding: 1rem 3rem;
+    transition: all .3s ease-in-out;
+    box-shadow: .5rem .4rem 1rem rgba(0,0,0, 0.2);
+    background-image: linear-gradient(to bottom right, var(--primary-color-light), var(--primary-color-dark));
+}
+
+.wrapper__form--btn:hover {
+    cursor: pointer;
+    transform: translateY(-5px) scale(1.03);
+}
+.wrapper__form--btn:active {
+    transform: translateY(0) scale(1);
+    box-shadow: none;
+}

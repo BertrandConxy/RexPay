@@ -5,7 +5,6 @@ SignupForm.addEventListener("submit", (e) => {
   const nameInput = document.getElementById("name").value;
   const emailInput = document.getElementById("email-signup").value;
   const passwordInput = document.getElementById("password-signup").value;
-//   const balanceInput = document.getElementById("balance").value;
   const adminCheckbox = document.getElementById("admin-checkbox").checked;
 
   const user = {
