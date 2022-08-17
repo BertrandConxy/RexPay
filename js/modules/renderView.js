@@ -8,8 +8,13 @@ wrapper.prepend(container)
 
 export function DisplayContent(currentUser, users) {
   const bodyContainer = document.getElementById("root");
-  const HtmlString = `<h1>Hello ${currentUser.name} </h1>
-    <p>Welcome to RexPay, the one and only platform to transfer your money to anyone around the world in a very short time</p>
+  const HtmlString = `
+      <header class="header">
+        <h1 class="header__logo">RexPay</h1>
+        <a href="../../index.html" class="header__link">Log out</a>
+    </header>
+  <h2 class='heading'>Hello ${currentUser.name} </h2>
+    <p class="paragraph">Welcome to RexPay, the one and only platform to transfer your money to anyone around the world in a very short time</p>
     ${
       currentUser.admin
         ? `
