@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/form.css">
     <title>RexPay | Signup</title>
 </head>
 <body>
-    <h1>Welcome to RexPay</h1>
-    <form action="#" id="signup-form" name="signup">
-        <input type="text" name="name" id="name" placeholder="Full name" required>
-        <input type="email" name="email" id="email-signup" placeholder="Email address" required>
-        <input type="password" name="password" id="password-signup" placeholder="Password" required>
-        <div>
-            <input type="checkbox" name="admin-checkbox" id="admin-checkbox">
-            <label for="admin-checkbox">Sign up as Admin</label>
-        </div>
-        <input type="submit" value="Signup" id="signup">
-    </form>
+    <div class="wrapper">
+
+        <h1 class="wrapper__heading">Welcome to RexPay</h1>
+        <p class="wrapper__description">The one and only platform to transfer your money to anyone around the world</p>
+        <form action="#" id="signup-form" name="signup" class="wrapper__form">
+            <input type="text" name="name" class="wrapper__form--control" id="name" placeholder="Full name" required>
+            <input type="email" name="email" class="wrapper__form--control" id="email-signup" placeholder="Email address" required>
+            <input type="password" name="password" class="wrapper__form--control" id="password-signup" placeholder="Password" required>
+            <div>
+                <input type="checkbox" name="admin-checkbox" id="admin-checkbox" class="wrapper__form--checkbox">
+                <label for="admin-checkbox">Sign up as Admin</label>
+            </div>
+            <input type="submit" value="Signup" id="signup" class="wrapper__form--btn">
+        </form>
+    </div>
     <script type="module" src="../js/modules/handleSignup.js"></script>
 </body>
 </html>
